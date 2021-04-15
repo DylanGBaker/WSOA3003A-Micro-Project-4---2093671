@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.y < 0f && !isGrounded())
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * increasedGravityfactor * Time.deltaTime;
-            Debug.Log(rb.velocity);
         }
     }
 
@@ -41,7 +40,6 @@ public class PlayerController : MonoBehaviour
         if (isGrounded() && Input.GetKey(jumpbutton))
         {
             Jump();
-            Debug.Log("jumping");
         }
     }
 
