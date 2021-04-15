@@ -8,6 +8,8 @@ public class BulletController : MonoBehaviour
     public float speed = 10f;
     public Rigidbody2D rb;
     public Scene scene;
+    public bool hitPlayer;
+
 
     [SerializeField] public PlayerController playerController;
     void Start()
@@ -16,8 +18,13 @@ public class BulletController : MonoBehaviour
         scene = SceneManager.GetActiveScene();
     }
 
+    /// <summary>
+    /// Checking if the bullet has hit the enemy.
+    /// </summary>
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.tag == "Player" && scene.buildIndex == 0)
         {
             Debug.Log("herro");

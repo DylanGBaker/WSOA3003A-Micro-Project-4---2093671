@@ -139,4 +139,5 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   hitPlayer: 0
+  restartpos0: {fileID: 3455425580283161030, guid: 9b8dec8e13e868a4c8632bfbe82449af, type: 3}
   playerController: {fileID: 6243435951885972747, guid: 94182158efc3d4b498d676a604633015, type: 3}

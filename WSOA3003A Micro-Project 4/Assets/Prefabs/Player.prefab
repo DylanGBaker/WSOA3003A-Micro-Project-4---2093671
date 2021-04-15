@@ -138,7 +138,7 @@ MonoBehaviour:
   playerwalkspeed: 7
   playerjumpforce: 8
   zeroConstant: 0
-  increasedGravityfactor: 1.5
+  increasedGravityfactor: 3
   rb: {fileID: 6243435951885972742}
   velocity: {x: 0, y: 0}
   rightbutton: 100
@@ -151,3 +151,4 @@ MonoBehaviour:
   RestartPosForLevelZero: {fileID: 3455425580283161030, guid: 9b8dec8e13e868a4c8632bfbe82449af, type: 3}
   scene:
     m_Handle: 0
+  bulletController: {fileID: 323484096019447220, guid: 68b943eb6a1935649a27ca67c89d5bdc, type: 3}

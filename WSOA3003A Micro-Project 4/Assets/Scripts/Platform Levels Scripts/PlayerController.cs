@@ -17,20 +17,15 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundlayer;
     public CapsuleCollider2D playerCapsulecollider;
     public GameObject RestartPosForLevelZero;
-    public Scene scene;
 
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        scene = SceneManager.GetActiveScene();
     }
 
     private void Update()
     {
-        if (rb.velocity.y < 0f && !isGrounded())
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * increasedGravityfactor * Time.deltaTime;
-        }
+        increaseGravity();
     }
 
     private void FixedUpdate()
@@ -73,11 +68,19 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(new Vector2(zeroConstant, playerjumpforce), ForceMode2D.Impulse);
     }
 
-    private bool isGrounded() //Checking if player is grounded so that they cant jump while in the air.
+    private bool isGrounded()
     {
         float raycastDistance = 0.01f;
         RaycastHit2D grounded = Physics2D.Raycast(playerCapsulecollider.bounds.center, Vector2.down, playerCapsulecollider.bounds.extents.y + raycastDistance, groundlayer);
         Debug.DrawRay(playerCapsulecollider.bounds.center, Vector2.down * (playerCapsulecollider.bounds.extents.y + raycastDistance));
         return grounded.collider != null;
+    }
+
+    private void increaseGravity() //Increasing the players gravity to make the jump feel better.
+    {
+        if (rb.velocity.y < 0f && !isGrounded())
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * increasedGravityfactor * Time.deltaTime;
+        }
     }
 }
