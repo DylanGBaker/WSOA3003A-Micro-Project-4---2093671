@@ -8,13 +8,13 @@ public class EnemyController : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject projectile;
     public Transform projectileSpawnPoint;
+    public Transform Player;
     public KeyCode shoot;
     public Scene scene;
 
     private float xDistance, yDistance, Distance;
+    public float attackRange = 30f;
     public bool hitPlayer;
-
-    [SerializeField] public PlayerController playerController;
 
     private void Start()
     {
@@ -24,21 +24,27 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        CalculateDistanceFromPlayer();
+        //CalculateDistanceFromPlayer();
 
-        if (Distance < 100f && Input.GetKeyDown(shoot))
-            Attack();
+        Distance = Vector2.Distance(transform.position, Player.transform.position);
+
+        if (Distance < attackRange)
+            StartCoroutine(Attack());
+
+        Debug.Log(Distance);
     }
 
-    public void Attack()
+    IEnumerator Attack()
     {
+        yield return new WaitForSeconds(2f);
         Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity);
     }
 
-    public void CalculateDistanceFromPlayer()
+    /*public float CalculateDistanceFromPlayer()
     {
-        xDistance = playerController.rb.transform.position.x - transform.position.x;
-        yDistance = playerController.rb.transform.position.y - transform.position.y;
+        xDistance = Player.transform.position.x - transform.position.x;
+        yDistance = Player.transform.position.y - transform.position.y;
         Distance = Mathf.Sqrt((xDistance * xDistance) + (yDistance * yDistance));
-    }
+        return Distance;
+    }*/
 }
