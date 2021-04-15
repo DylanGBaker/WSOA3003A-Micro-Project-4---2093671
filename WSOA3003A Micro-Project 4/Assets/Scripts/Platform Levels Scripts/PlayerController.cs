@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float playerwalkspeed = 5f;
     public float playerjumpforce = 1.5f;
     public float zeroConstant = 0f;
+    public float increasedGravityfactor = 1.5f;
 
     public Rigidbody2D rb;
     public Vector2 velocity;
@@ -18,6 +19,15 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (rb.velocity.y < 0f && !isGrounded())
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * increasedGravityfactor * Time.deltaTime;
+            Debug.Log(rb.velocity);
+        }
     }
 
     private void FixedUpdate()
