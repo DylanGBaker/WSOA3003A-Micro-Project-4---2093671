@@ -20,6 +20,7 @@ public class BulletController : MonoBehaviour
 
     /// <summary>
     /// Checking if the bullet has hit the enemy.
+    /// Depending on which level this is on it will do something different.
     /// </summary>
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,9 +28,8 @@ public class BulletController : MonoBehaviour
 
         if (collision.tag == "Player" && scene.buildIndex == 0)
         {
-            Debug.Log("herro");
-            playerController.transform.position = new Vector2(playerController.RestartPosForLevelZero.transform.position.x, playerController.RestartPosForLevelZero.transform.position.y);
+            collision.transform.position = new Vector2(playerController.RestartPosForLevelZero.transform.position.x, playerController.RestartPosForLevelZero.transform.position.y);
         }
-        Destroy(gameObject);
+        Destroy(gameObject); 
     }
 }
