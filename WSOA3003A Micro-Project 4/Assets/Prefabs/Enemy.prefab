@@ -149,6 +149,9 @@ MonoBehaviour:
   projectile: {fileID: 2555595384448730160, guid: 68b943eb6a1935649a27ca67c89d5bdc, type: 3}
   projectileSpawnPoint: {fileID: 3186952297682230465}
   shoot: 113
+  scene:
+    m_Handle: 0
+  hitPlayer: 0
   playerController: {fileID: 6243435951885972747, guid: 94182158efc3d4b498d676a604633015, type: 3}
 --- !u!1 &6334671655269407797
 GameObject:
@@ -173,10 +176,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6334671655269407797}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.098, y: 0.019, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.151, y: 0.004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8933287980608424396}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

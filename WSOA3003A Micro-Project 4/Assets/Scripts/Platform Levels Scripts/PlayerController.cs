@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,10 +16,13 @@ public class PlayerController : MonoBehaviour
     public KeyCode rightbutton, leftbutton, jumpbutton;
     public LayerMask groundlayer;
     public CapsuleCollider2D playerCapsulecollider;
+    public GameObject RestartPosForLevelZero;
+    public Scene scene;
 
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        scene = SceneManager.GetActiveScene();
     }
 
     private void Update()

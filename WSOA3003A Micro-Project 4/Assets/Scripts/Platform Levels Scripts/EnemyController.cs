@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -8,14 +9,17 @@ public class EnemyController : MonoBehaviour
     public GameObject projectile;
     public Transform projectileSpawnPoint;
     public KeyCode shoot;
+    public Scene scene;
 
     private float xDistance, yDistance, Distance;
+    public bool hitPlayer;
 
     [SerializeField] public PlayerController playerController;
 
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        hitPlayer = false;
     }
 
     private void Update()
@@ -24,8 +28,6 @@ public class EnemyController : MonoBehaviour
 
         if (Distance < 100f && Input.GetKeyDown(shoot))
             Attack();
-
-        Debug.Log(Distance);
     }
 
     public void Attack()
