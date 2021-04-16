@@ -19,6 +19,8 @@ public class EnemyPatrolAI : MonoBehaviour
     public float groundcheckradius;
     private float xDistance, yDistance, Distance;
     public float attackRange;
+    public float ZeroConstant;
+    public float speed = 5f;
 
     [SerializeField] public EnemyController enemyController;
 
@@ -44,18 +46,15 @@ public class EnemyPatrolAI : MonoBehaviour
 
             rb.velocity = Vector2.zero;
             canPatrol = false;
-            canShoot = true;
+            Attack();
         }
         else
         {
             canPatrol = true;
-            canShoot = false;
         }
 
         if (scene.buildIndex == 0)
             canPatrol = false;
-
-        Attack();
 
         Debug.Log(CalculateDistanceFromPlayer());
     }
@@ -94,18 +93,9 @@ public class EnemyPatrolAI : MonoBehaviour
 
     public void Attack()
     {
-        if (canShoot)
-        {
-            Debug.Log("can shoot");
-            Instantiate(enemyController.projectile, enemyController.projectileSpawnPoint.position, Quaternion.identity);
-            StartCoroutine(AttackTimer());
-        }
-    }
-
-    public IEnumerator AttackTimer()
-    {
+        new WaitForSeconds(5);
+        GameObject newProjectile = Instantiate(enemyController.projectile, enemyController.projectileSpawnPoint.position, Quaternion.identity);
+        newProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(speed * patrolSpeed * Time.fixedDeltaTime, ZeroConstant);
         Attack();
-        yield return new WaitForSeconds(5f);
-        //Attack();
     }
 }
