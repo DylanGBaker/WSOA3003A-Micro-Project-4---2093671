@@ -9,8 +9,6 @@ public class EnemyController : MonoBehaviour
     public GameObject projectile;
     public Transform projectileSpawnPoint;
 
-
-
     [SerializeField] public EnemyPatrolAI enemyPatrolAI;
 
     private void Start()
@@ -20,7 +18,7 @@ public class EnemyController : MonoBehaviour
 
     public IEnumerator Attack()
     {
-         yield return new WaitForSeconds(3f);
-         Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity);
+            yield return new WaitForSeconds(3f);
+            Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity);      
     }
 }

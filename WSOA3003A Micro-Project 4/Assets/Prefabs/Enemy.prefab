@@ -199,10 +199,10 @@ MonoBehaviour:
   Player: {fileID: 6243435951885972740, guid: 94182158efc3d4b498d676a604633015, type: 3}
   canPatrol: 0
   mustFlip: 0
-  canShoot: 0
-  patrolSpeed: -50
+  patrolSpeed: 50
   groundcheckradius: 0.1
   attackRange: 30
+  ZeroConstant: 0
   enemyController: {fileID: 4367193934281679594}
 --- !u!1 &3930476458948103005
 GameObject:
