@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class BulletController : MonoBehaviour
 {
    
-    public float ZeroConstant;
+    public float ZeroConstant = 0f;
+    public float speed = 5f;
 
     public Rigidbody2D rb;
     private Scene scene;
@@ -15,7 +16,7 @@ public class BulletController : MonoBehaviour
     [SerializeField] public EnemyPatrolAI enemyPatrolAI;
     void Start()
     {
-       // rb.velocity = new Vector2(speed * enemyPatrolAI.patrolSpeed * Time.fixedDeltaTime, ZeroConstant);
+        rb.velocity = new Vector2(speed * enemyPatrolAI.patrolSpeed * Time.fixedDeltaTime, ZeroConstant);
         scene = SceneManager.GetActiveScene();
     }
 
