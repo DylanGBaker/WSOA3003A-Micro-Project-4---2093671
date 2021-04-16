@@ -138,6 +138,5 @@ MonoBehaviour:
   rb: {fileID: 1486041274758952308}
   scene:
     m_Handle: 0
-  hitPlayer: 0
-  restartpos0: {fileID: 3455425580283161030, guid: 9b8dec8e13e868a4c8632bfbe82449af, type: 3}
   playerController: {fileID: 6243435951885972747, guid: 94182158efc3d4b498d676a604633015, type: 3}
+  enemyPatrolAI: {fileID: -1298322395416267994, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}

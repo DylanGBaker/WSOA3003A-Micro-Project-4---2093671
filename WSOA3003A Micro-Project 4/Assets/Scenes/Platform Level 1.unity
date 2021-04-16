@@ -972,11 +972,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3186952297682230465, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.413
+      value: 0.149
       objectReference: {fileID: 0}
     - target: {fileID: 3186952297682230465, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.017
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4367193934281679594, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}
       propertyPath: sceneController

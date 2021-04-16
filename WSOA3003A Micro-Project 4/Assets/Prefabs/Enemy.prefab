@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1394346030110506162}
   - component: {fileID: 418162183835081175}
   - component: {fileID: -3143404520734876979}
+  - component: {fileID: 8418241087240322022}
   - component: {fileID: 4367193934281679594}
   - component: {fileID: -1298322395416267994}
   m_Layer: 0
@@ -101,7 +102,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0028228257, y: -0.058820825}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.12424445, y: 0.01723104}
   m_EdgeRadius: 0
 --- !u!50 &-3143404520734876979
 Rigidbody2D:
@@ -126,7 +127,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -135,6 +136,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &8418241087240322022
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755504348453502573}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.026346229, y: 0.015258431}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.21269245, y: 0.12948313}
+  m_EdgeRadius: 0
 --- !u!114 &4367193934281679594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,11 +177,7 @@ MonoBehaviour:
   rb: {fileID: -3143404520734876979}
   projectile: {fileID: 2555595384448730160, guid: 68b943eb6a1935649a27ca67c89d5bdc, type: 3}
   projectileSpawnPoint: {fileID: 3186952297682230465}
-  Player: {fileID: 6243435951885972740, guid: 94182158efc3d4b498d676a604633015, type: 3}
-  shoot: 113
-  scene:
-    m_Handle: 0
-  hitPlayer: 0
+  enemyPatrolAI: {fileID: -1298322395416267994}
 --- !u!114 &-1298322395416267994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,16 +191,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -3143404520734876979}
-  canPatrol: 0
-  mustFlip: 0
-  patrolSpeed: 50
-  groundcheckradius: 0.1
   groundCheck: {fileID: 124553695754536456}
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
-  scene:
-    m_Handle: 0
+  enemyCollider: {fileID: 8418241087240322022}
+  Player: {fileID: 6243435951885972740, guid: 94182158efc3d4b498d676a604633015, type: 3}
+  canPatrol: 0
+  mustFlip: 0
+  canShoot: 0
+  patrolSpeed: -50
+  groundcheckradius: 0.1
+  attackRange: 30
+  enemyController: {fileID: 4367193934281679594}
 --- !u!1 &3930476458948103005
 GameObject:
   m_ObjectHideFlags: 0

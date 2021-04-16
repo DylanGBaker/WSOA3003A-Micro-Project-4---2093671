@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public float cameraOffset = -1f;
+    public float cameraOffset;
     [SerializeField] public PlayerController playerController;
     private void Update()
     {

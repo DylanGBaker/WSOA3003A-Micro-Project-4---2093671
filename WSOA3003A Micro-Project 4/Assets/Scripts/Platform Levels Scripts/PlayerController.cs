@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float playerhealth = 20;
-    public float playerwalkspeed = 5f;
-    public float playerjumpforce = 1.5f;
-    public float zeroConstant = 0f;
-    public float increasedGravityfactor = 1.5f;
+    public float playerhealth;
+    public float playerwalkspeed;
+    public float playerjumpforce;
+    public float zeroConstant;
+    public float increasedGravityfactor;
 
     public Rigidbody2D rb;
     public Vector2 velocity;

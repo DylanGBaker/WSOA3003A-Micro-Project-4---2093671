@@ -5,16 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class BulletController : MonoBehaviour
 {
-    public float speed = 10f;
-    public Rigidbody2D rb;
-    public Scene scene;
-    public bool hitPlayer;
+    public float speed;
+    public float ZeroConstant;
 
+    public Rigidbody2D rb;
+    private Scene scene;
 
     [SerializeField] public PlayerController playerController;
+    [SerializeField] public EnemyPatrolAI enemyPatrolAI;
     void Start()
     {
-        rb.velocity = Vector2.left * speed;
+        rb.velocity = new Vector2(speed * enemyPatrolAI.patrolSpeed * Time.fixedDeltaTime, ZeroConstant);
         scene = SceneManager.GetActiveScene();
     }
 
@@ -29,7 +30,7 @@ public class BulletController : MonoBehaviour
         if (collision.tag == "Player" && scene.buildIndex == 0)
         {
             collision.transform.position = new Vector2(playerController.RestartPosForLevelZero.transform.position.x, playerController.RestartPosForLevelZero.transform.position.y);
+            Destroy(gameObject);
         }
-        Destroy(gameObject); 
     }
 }
