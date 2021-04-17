@@ -134,9 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ca867ad806e0146a34e2f1a8c0dede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ZeroConstant: 0
   speed: 10
   rb: {fileID: 1486041274758952308}
-  scene:
-    m_Handle: 0
+  projectile: {fileID: 2555595384448730160}
+  projectileSpawnPoint: {fileID: 0}
   playerController: {fileID: 6243435951885972747, guid: 94182158efc3d4b498d676a604633015, type: 3}
   enemyPatrolAI: {fileID: -1298322395416267994, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}

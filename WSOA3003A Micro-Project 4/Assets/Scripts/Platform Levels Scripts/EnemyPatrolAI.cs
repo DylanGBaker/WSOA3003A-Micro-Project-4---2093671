@@ -11,14 +11,17 @@ public class EnemyPatrolAI : MonoBehaviour
     public Collider2D enemyCollider;
     private Scene scene;
     public Transform Player;
+    public GameObject projectile;
+    public Transform projectileSpawnPoint;
 
     public bool canPatrol;
     public bool mustFlip;
-    public float patrolSpeed;
+    public float patrolSpeed = 50f;
     public float groundcheckradius;
     private float xDistance, yDistance, Distance;
     public float attackRange;
     public float ZeroConstant;
+    public float speed = 10f;
 
     [SerializeField] public EnemyController enemyController;
 
@@ -38,12 +41,12 @@ public class EnemyPatrolAI : MonoBehaviour
 
         if (CalculateDistanceFromPlayer() <= attackRange)
         {
-            if (Player.transform.position.x < transform.position.x && transform.localScale.x > 0f || Player.transform.position.x > transform.position.x && transform.localScale.x < 0f)
-                flipEnemy();
+            if (Player.transform.position.x < transform.position.x && transform.rotation.y == 180f || Player.transform.position.x > transform.position.x && transform.rotation.y == -180f)
+                FlipEnemy();
 
             rb.velocity = Vector2.zero;
             canPatrol = false;
-            StartCoroutine(enemyController.Attack());
+            StartCoroutine(SpawnBullet());
         }
         else
         {
@@ -65,16 +68,16 @@ public class EnemyPatrolAI : MonoBehaviour
     public void Patrol()
     {
         if (mustFlip || enemyCollider.IsTouchingLayers(GroundLayer))
-            flipEnemy();
+            FlipEnemy();
 
         float xVelocity = patrolSpeed * Time.fixedDeltaTime;
         rb.velocity = new Vector2(xVelocity, rb.velocity.y);
     }
 
-    public void flipEnemy()
+    public void FlipEnemy()
     {
         canPatrol = false;
-        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        transform.Rotate(0f, 180f, 0f);
         patrolSpeed *= -1;
         canPatrol = true;
     }
@@ -85,4 +88,12 @@ public class EnemyPatrolAI : MonoBehaviour
         Distance = Mathf.Sqrt((xDistance * xDistance) + (yDistance * yDistance));
         return Distance;
     }
+
+    public IEnumerator SpawnBullet()
+    {
+        yield return new WaitForSeconds(2f);
+        GameObject newProjectile = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity);
+        newProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(speed * patrolSpeed * Time.fixedDeltaTime, ZeroConstant);
+    }
+
 }
