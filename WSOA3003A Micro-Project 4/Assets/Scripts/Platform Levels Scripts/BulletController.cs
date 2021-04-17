@@ -7,7 +7,6 @@ public class BulletController : MonoBehaviour
 {
    
     public float ZeroConstant = 0f;
-    public float speed = 10f;
 
     public Rigidbody2D rb;
     private Scene scene;

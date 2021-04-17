@@ -16,6 +16,7 @@ public class EnemyPatrolAI : MonoBehaviour
 
     public bool canPatrol;
     public bool mustFlip;
+    public bool canShoot;
     public float patrolSpeed = 50f;
     public float groundcheckradius;
     private float xDistance, yDistance, Distance;
@@ -29,6 +30,7 @@ public class EnemyPatrolAI : MonoBehaviour
     {
         canPatrol = true;
         mustFlip = false;
+        canShoot = true;
         scene = SceneManager.GetActiveScene();
     }
 
@@ -46,6 +48,8 @@ public class EnemyPatrolAI : MonoBehaviour
 
             rb.velocity = Vector2.zero;
             canPatrol = false;
+
+            if(canShoot)
             StartCoroutine(SpawnBullet());
         }
         else
@@ -91,9 +95,11 @@ public class EnemyPatrolAI : MonoBehaviour
 
     public IEnumerator SpawnBullet()
     {
+        canShoot = false;
         yield return new WaitForSeconds(2f);
         GameObject newProjectile = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity);
         newProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(speed * patrolSpeed * Time.fixedDeltaTime, ZeroConstant);
+        canShoot = true;
     }
 
 }
