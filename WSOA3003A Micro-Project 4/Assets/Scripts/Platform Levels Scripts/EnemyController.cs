@@ -18,13 +18,24 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (health <= 0)
-            Destroy(gameObject);
+        if (hasDied)
+        {
+            StartCoroutine(Die());
+        }
     }
 
     public void TakeDamage (int damage)
     {
         health -= damage;
-        hasDied = true;
+
+        if (health <= 0)
+            hasDied = true;
+    }
+
+    public IEnumerator Die()
+    {
+        hasDied = false;
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 }
