@@ -10,9 +10,20 @@ public class ProgressionDoors : MonoBehaviour
     public int LevelOne = 1;
     public int LevelTwo = 2;
 
+    [SerializeField] public EnemyController enemyController;
+
+
     private void Start()
     {
         scene = SceneManager.GetActiveScene();
+    }
+
+    private void Update()
+    {
+        if (scene.buildIndex == 1 && !enemyController.hasDied)
+            gameObject.SetActive(false);
+        else if (scene.buildIndex == 1 && enemyController.hasDied)
+            gameObject.SetActive(true);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

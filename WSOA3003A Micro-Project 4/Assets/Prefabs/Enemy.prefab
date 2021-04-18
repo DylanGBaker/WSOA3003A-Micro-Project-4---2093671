@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8418241087240322022}
   - component: {fileID: 4367193934281679594}
   - component: {fileID: -1298322395416267994}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,6 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b706e709b5a9f4db54236dc72dc6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 10
+  hasDied: 0
   rb: {fileID: -3143404520734876979}
 --- !u!114 &-1298322395416267994
 MonoBehaviour:
@@ -214,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 124553695754536456}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3186952297682230465}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Projectile Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}

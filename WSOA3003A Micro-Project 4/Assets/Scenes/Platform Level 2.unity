@@ -153,7 +153,7 @@ Transform:
   - {fileID: 710174354}
   - {fileID: 1111643251}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202985603 stripped
 GameObject:
@@ -176,6 +176,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6243435951885972740, guid: 94182158efc3d4b498d676a604633015, type: 3}
   m_PrefabInstance: {fileID: 1543224407}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &315855930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4367193934281679594, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}
+  m_PrefabInstance: {fileID: 624909029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b706e709b5a9f4db54236dc72dc6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &624909029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186,6 +197,10 @@ PrefabInstance:
     - target: {fileID: 1755504348453502573, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367193934281679594, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}
+      propertyPath: health
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8933287980608424396, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}
       propertyPath: m_RootOrder
@@ -482,6 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60eb879b54a47f4c90c64aaa195d5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasSword: 0
   parentPlayer: {fileID: 202985603}
   swordPosition: {fileID: 1901403849}
 --- !u!58 &1342081705
@@ -563,7 +579,7 @@ Transform:
   m_LocalScale: {x: 0.20201, y: 0.20201, z: 0.20201}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1543224407
 PrefabInstance:
@@ -572,6 +588,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7862619719217097029, guid: 94182158efc3d4b498d676a604633015, type: 3}
+      propertyPath: attackRange
+      value: 0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: -7862619719217097029, guid: 94182158efc3d4b498d676a604633015, type: 3}
+      propertyPath: playerSword
+      value: 
+      objectReference: {fileID: 1342081704}
+    - target: {fileID: -7862619719217097029, guid: 94182158efc3d4b498d676a604633015, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 6243435951885972736, guid: 94182158efc3d4b498d676a604633015, type: 3}
       propertyPath: m_Name
       value: Player
@@ -582,7 +610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6243435951885972740, guid: 94182158efc3d4b498d676a604633015, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6243435951885972740, guid: 94182158efc3d4b498d676a604633015, type: 3}
       propertyPath: m_LocalScale.x
@@ -776,9 +804,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2004871005658233805, guid: 825444879133986418bb8ba0cb25eef7, type: 3}
+      propertyPath: enemyController
+      value: 
+      objectReference: {fileID: 315855930}
     - target: {fileID: 4160764271332926825, guid: 825444879133986418bb8ba0cb25eef7, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4160764271332926825, guid: 825444879133986418bb8ba0cb25eef7, type: 3}
       propertyPath: m_LocalPosition.x

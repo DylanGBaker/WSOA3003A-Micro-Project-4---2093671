@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerSword : MonoBehaviour
 {
+    public bool hasSword;
+
     public GameObject parentPlayer;
     public GameObject swordPosition;
     private Scene scene;
@@ -12,6 +14,11 @@ public class PlayerSword : MonoBehaviour
     private void Start()
     {
         scene = SceneManager.GetActiveScene();
+
+        if (scene.buildIndex == 1)
+            hasSword = false;
+        else
+            hasSword = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,6 +27,7 @@ public class PlayerSword : MonoBehaviour
         {
             transform.parent = parentPlayer.transform;
             transform.position = swordPosition.transform.position;
+            hasSword = true;
         }
     }
 }

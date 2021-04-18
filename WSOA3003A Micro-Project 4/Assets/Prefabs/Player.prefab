@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 6243435951885972740}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2179944035137514179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6223660888893364030}
+  m_Layer: 0
+  m_Name: Attack Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6223660888893364030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179944035137514179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.665, y: 0.456, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6243435951885972740}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6243435951885972736
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,6 +73,7 @@ GameObject:
   - component: {fileID: 6243435951885972742}
   - component: {fileID: 6243435951885972743}
   - component: {fileID: 6243435951885972747}
+  - component: {fileID: -7862619719217097029}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -62,6 +93,7 @@ Transform:
   m_LocalScale: {x: 4.0233, y: 4.0233, z: 4.0233}
   m_Children:
   - {fileID: 3264621323286174224}
+  - {fileID: 6223660888893364030}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -180,3 +212,25 @@ MonoBehaviour:
     m_Bits: 64
   playerCapsulecollider: {fileID: 6243435951885972743}
   RestartPosForLevelZero: {fileID: 2904629563150091298, guid: 02dbc5bb1fe743c408a7ee812ca2182f, type: 3}
+--- !u!114 &-7862619719217097029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243435951885972736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419729c8b7a76b94e8ff198874dfcc71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 2
+  timeBeforeNextAttack: 0.5
+  startTimeBeforeNextAttack: 0
+  attackRange: 3.5
+  attackButton: 106
+  attackPosition: {fileID: 6223660888893364030}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  enemyController: {fileID: 4367193934281679594, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}
