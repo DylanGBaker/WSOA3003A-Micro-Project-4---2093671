@@ -57,8 +57,16 @@ public class EnemyPatrolAI : MonoBehaviour
             canPatrol = true;
         }
 
-        if (scene.buildIndex == 0)
+        if (scene.buildIndex == 0 || scene.buildIndex == 1)
+        {
             canPatrol = false;
+        }
+        else if (scene.buildIndex == 1)
+        {
+            canPatrol = false;
+            canShoot = false;
+        }
+
     }
 
     private void FixedUpdate()
