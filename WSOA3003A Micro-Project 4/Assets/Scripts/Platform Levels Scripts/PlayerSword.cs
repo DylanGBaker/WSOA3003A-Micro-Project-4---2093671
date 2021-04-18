@@ -16,9 +16,15 @@ public class PlayerSword : MonoBehaviour
         scene = SceneManager.GetActiveScene();
 
         if (scene.buildIndex == 1)
+        {
             hasSword = false;
-        else
+        }
+        else if (scene.buildIndex != 1)
+        {
             hasSword = true;
+            transform.parent = parentPlayer.transform;
+            transform.position = swordPosition.transform.position;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
