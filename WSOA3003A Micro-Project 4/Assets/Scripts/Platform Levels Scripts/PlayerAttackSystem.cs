@@ -21,9 +21,19 @@ public class PlayerAttackSystem : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0) && playerSword.hasSword)
             {
-                Collider2D[] allEnemiesHit = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemyLayer);
-                for (int x = 0; x < allEnemiesHit.Length; x++)
-                    allEnemiesHit[x].GetComponent<EnemyController>().TakeDamage(damageDealt);
+                Collider2D[] EnemiesHit = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemyLayer);
+                for (int x = 0; x < EnemiesHit.Length; x++)
+                {
+                    if (EnemiesHit[x].tag == "BaseEnemy")
+                    {
+                        EnemiesHit[x].GetComponent<EnemyController>().TakeDamage(damageDealt);
+                    } 
+                    else if (EnemiesHit[x].tag == "BigEnemy")
+                    {
+                        break;
+                    }
+                }
+
             }
             timeBeforeNextAttack = startTimeBeforeNextAttack;
         }

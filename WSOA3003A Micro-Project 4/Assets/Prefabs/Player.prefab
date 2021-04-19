@@ -212,6 +212,7 @@ MonoBehaviour:
     m_Bits: 64
   playerCapsulecollider: {fileID: 6243435951885972743}
   RestartPosForLevelZero: {fileID: 2904629563150091298, guid: 02dbc5bb1fe743c408a7ee812ca2182f, type: 3}
+  enemyController: {fileID: 4367193934281679594, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}
 --- !u!114 &-7862619719217097029
 MonoBehaviour:
   m_ObjectHideFlags: 0

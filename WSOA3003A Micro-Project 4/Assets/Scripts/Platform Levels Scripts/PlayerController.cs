@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public CapsuleCollider2D playerCapsulecollider;
     public GameObject RestartPosForLevelZero;
 
+    [SerializeField] public EnemyController enemyController;
+
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -75,6 +77,9 @@ public class PlayerController : MonoBehaviour
         return grounded.collider != null;
     }
 
+    /// <summary>
+    /// Increasing the players gravity when they jump to make the jump feel better like in Super Mario Bros.
+    /// </summary>
     private void increaseGravity() //Increasing the players gravity to make the jump feel better.
     {
         if (rb.velocity.y < 0f && !isGrounded())
