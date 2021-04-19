@@ -16,14 +16,17 @@ public class ProgressionDoors : MonoBehaviour
     private void Start()
     {
         scene = SceneManager.GetActiveScene();
+
         if (scene.buildIndex == 1)
-            gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         if (scene.buildIndex == 1 && enemyController.health <= 0)
-            gameObject.SetActive(true);
+        {
+            this.gameObject.SetActive(true);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

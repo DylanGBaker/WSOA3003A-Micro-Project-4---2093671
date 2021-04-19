@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
     {
         if (hasDied)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
@@ -32,8 +32,9 @@ public class EnemyController : MonoBehaviour
             hasDied = true;
     }
 
-    public void Die()
+    public IEnumerator Die()
     {
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 }
