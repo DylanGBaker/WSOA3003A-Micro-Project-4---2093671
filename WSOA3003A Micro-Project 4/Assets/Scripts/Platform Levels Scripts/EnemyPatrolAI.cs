@@ -22,6 +22,7 @@ public class EnemyPatrolAI : MonoBehaviour
     public float attackRange;
     public float ZeroConstant;
     public float speed;
+    public float oppositeOneEighty = -180f;
 
     [SerializeField] public EnemyController enemyController;
     [SerializeField] public PlayerController playerController;
@@ -43,8 +44,16 @@ public class EnemyPatrolAI : MonoBehaviour
 
         if (CalculateDistanceFromPlayer() <= attackRange)
         {
-            if (Player.position.x < transform.position.x && transform.rotation.y == ZeroConstant || Player.position.x > transform.position.x && transform.rotation.y == 180f)
+            if (Player.position.x < transform.position.x && transform.localScale.x > 0f)
+            {
                 FlipEnemy();
+                Debug.Log("player on left");
+            }
+            else if (Player.position.x > transform.position.x && transform.localScale.x < 0f)
+            {
+                FlipEnemy();
+                Debug.Log("player on right");
+            }
 
             rb.velocity = Vector2.zero;
             canPatrol = false;
@@ -74,8 +83,6 @@ public class EnemyPatrolAI : MonoBehaviour
         {
             mustFlip = !Physics2D.OverlapCircle(groundCheck.position, groundcheckradius, GroundLayer);
         }
-
-        Debug.Log(CalculateDistanceFromPlayer());
     }
 
     public void Patrol()
@@ -93,7 +100,8 @@ public class EnemyPatrolAI : MonoBehaviour
     public void FlipEnemy()
     {
         canPatrol = false;
-        transform.Rotate(0f, 180f, 0f);
+        //transform.Rotate(0f, 180f, 0f);
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         patrolSpeed *= -1;
         canPatrol = true;
     }

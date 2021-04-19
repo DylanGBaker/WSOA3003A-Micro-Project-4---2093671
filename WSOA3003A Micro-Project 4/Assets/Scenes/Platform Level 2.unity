@@ -171,6 +171,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b8485e6f45c1a4d945abc54e2a63a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &202985605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7862619719217097029, guid: 94182158efc3d4b498d676a604633015, type: 3}
+  m_PrefabInstance: {fileID: 1543224407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202985603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419729c8b7a76b94e8ff198874dfcc71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &202985608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6243435951885972740, guid: 94182158efc3d4b498d676a604633015, type: 3}
@@ -712,6 +723,10 @@ PrefabInstance:
       propertyPath: enemyController
       value: 
       objectReference: {fileID: 315855930}
+    - target: {fileID: 2004871005658233805, guid: 825444879133986418bb8ba0cb25eef7, type: 3}
+      propertyPath: playerAttackSystem
+      value: 
+      objectReference: {fileID: 202985605}
     - target: {fileID: 4160764271332926825, guid: 825444879133986418bb8ba0cb25eef7, type: 3}
       propertyPath: m_RootOrder
       value: 1
