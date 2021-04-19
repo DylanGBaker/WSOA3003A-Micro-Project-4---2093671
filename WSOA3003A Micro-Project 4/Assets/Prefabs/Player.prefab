@@ -226,8 +226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDealt: 2
-  startTimeBeforeNextAttack: 0.5
-  attackRange: 3.5
+  startTimeBeforeNextAttack: 0.2
+  attackRange: 0.86
+  hasKilledEnemy: 0
   attackPosition: {fileID: 6223660888893364030}
   enemyLayer:
     serializedVersion: 2

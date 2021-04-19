@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    [SerializeField] public PlayerAttackSystem playerAttackSystem;
+
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();

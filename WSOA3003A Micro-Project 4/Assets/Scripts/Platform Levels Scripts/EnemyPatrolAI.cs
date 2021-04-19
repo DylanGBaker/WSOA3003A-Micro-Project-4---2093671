@@ -17,11 +17,11 @@ public class EnemyPatrolAI : MonoBehaviour
     public bool canPatrol;
     public bool mustFlip;
     public bool canShoot;
-    public float patrolSpeed = 50f;
+    public float patrolSpeed;
     public float groundcheckradius;
     public float attackRange;
     public float ZeroConstant;
-    public float speed = 10f;
+    public float speed;
 
     [SerializeField] public EnemyController enemyController;
     [SerializeField] public PlayerController playerController;
@@ -87,6 +87,9 @@ public class EnemyPatrolAI : MonoBehaviour
         rb.velocity = new Vector2(xVelocity, rb.velocity.y);
     }
 
+    /// <summary>
+    /// Checking if the enemy hits a wall or is at the end of a platform so that the enemy can flip.
+    /// </summary>
     public void FlipEnemy()
     {
         canPatrol = false;
@@ -94,7 +97,6 @@ public class EnemyPatrolAI : MonoBehaviour
         patrolSpeed *= -1;
         canPatrol = true;
     }
-    
 
     public IEnumerator SpawnBullet()
     {
@@ -105,11 +107,16 @@ public class EnemyPatrolAI : MonoBehaviour
         canShoot = true;
     }
 
+    /// <summary>
+    /// Calculating the distance between the player and the enemy.
+    /// </summary>
+    /// <returns></returns>
+
     public float CalculateDistanceFromPlayer()
     {
         float xDistance = Mathf.Abs(Player.position.x - transform.position.x);
         float yDistance = Mathf.Abs(Player.position.y - transform.position.y);
-        float Distance = /*Vector2.Distance(transform.position, Player.position);*/ Mathf.Sqrt((xDistance * xDistance) + (yDistance * yDistance));
+        float Distance = Mathf.Sqrt((xDistance * xDistance) + (yDistance * yDistance));
         return Distance;
     }
 }

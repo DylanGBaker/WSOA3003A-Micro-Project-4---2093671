@@ -1588,6 +1588,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7862619719217097029, guid: 94182158efc3d4b498d676a604633015, type: 3}
+      propertyPath: attackRange
+      value: 0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: -7862619719217097029, guid: 94182158efc3d4b498d676a604633015, type: 3}
+      propertyPath: startTimeBeforeNextAttack
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6243435951885972736, guid: 94182158efc3d4b498d676a604633015, type: 3}
       propertyPath: m_Name
       value: Player

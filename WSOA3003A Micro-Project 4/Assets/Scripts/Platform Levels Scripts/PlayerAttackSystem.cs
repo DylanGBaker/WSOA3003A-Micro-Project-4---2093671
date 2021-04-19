@@ -9,11 +9,17 @@ public class PlayerAttackSystem : MonoBehaviour
     private float timeBeforeNextAttack;
     public float startTimeBeforeNextAttack;
     public float attackRange;
+    public bool hasKilledEnemy;
 
     public Transform attackPosition;
     public LayerMask enemyLayer;
 
     [SerializeField] public PlayerSword playerSword;
+
+    private void Start()
+    {
+        hasKilledEnemy = false;
+    }
 
     private void Update()
     {

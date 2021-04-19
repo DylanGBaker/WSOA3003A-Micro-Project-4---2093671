@@ -10,7 +10,7 @@ public class ProgressionDoors : MonoBehaviour
     public int LevelOne = 1;
     public int LevelTwo = 2;
 
-    [SerializeField] public EnemyController enemyController;
+    [SerializeField] public PlayerAttackSystem playerAttackSystem;
 
 
     private void Start()
@@ -23,7 +23,7 @@ public class ProgressionDoors : MonoBehaviour
 
     private void Update()
     {
-        if (scene.buildIndex == 1 && enemyController.hasDied)
+        if (scene.buildIndex == 1 && playerAttackSystem.hasKilledEnemy)
         {
             this.gameObject.SetActive(true);
         }
