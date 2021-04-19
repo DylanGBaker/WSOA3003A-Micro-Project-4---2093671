@@ -25,6 +25,7 @@ public class EnemyPatrolAI : MonoBehaviour
     public float speed = 10f;
 
     [SerializeField] public EnemyController enemyController;
+    [SerializeField] public PlayerController playerController;
 
     private void Start()
     {
@@ -32,6 +33,15 @@ public class EnemyPatrolAI : MonoBehaviour
         mustFlip = false;
         canShoot = true;
         scene = SceneManager.GetActiveScene();
+        if (scene.buildIndex == 0)
+        {
+            canPatrol = false;
+        }
+        else if (scene.buildIndex == 1)
+        {
+            canPatrol = false;
+            canShoot = false;
+        }
     }
 
     private void Update()
@@ -41,15 +51,15 @@ public class EnemyPatrolAI : MonoBehaviour
 
         CalculateDistanceFromPlayer();
 
-        if (CalculateDistanceFromPlayer() <= attackRange)
+        if (xDistance <= attackRange)
         {
-            if (Player.transform.position.x < transform.position.x && transform.rotation.y == 180f || Player.transform.position.x > transform.position.x && transform.rotation.y == -180f)
+            if (playerController.rb.transform.position.x < transform.position.x && transform.rotation.y == 0f || playerController.rb.transform.position.x > transform.position.x && transform.rotation.y == 180f)
                 FlipEnemy();
 
             rb.velocity = Vector2.zero;
             canPatrol = false;
 
-            if(canShoot)
+            if (canShoot == true)
             StartCoroutine(SpawnBullet());
         }
         else
@@ -57,15 +67,10 @@ public class EnemyPatrolAI : MonoBehaviour
             canPatrol = true;
         }
 
-        if (scene.buildIndex == 0 || scene.buildIndex == 1)
-        {
-            canPatrol = false;
-        }
-        else if (scene.buildIndex == 1)
-        {
-            canPatrol = false;
-            canShoot = false;
-        }
+
+
+
+        Debug.Log(xDistance);
 
     }
 
@@ -93,12 +98,11 @@ public class EnemyPatrolAI : MonoBehaviour
         patrolSpeed *= -1;
         canPatrol = true;
     }
-    public float CalculateDistanceFromPlayer()
+    public void CalculateDistanceFromPlayer()
     {
-        xDistance = Player.transform.position.x - transform.position.x;
-        yDistance = Player.transform.position.y - transform.position.y;
-        Distance = Mathf.Sqrt((xDistance * xDistance) + (yDistance * yDistance));
-        return Distance;
+        xDistance = Mathf.Abs(transform.position.x - playerController.rb.transform.position.x);
+        //yDistance = playerController.rb.transform.position.y - transform.position.y;
+        //Distance = Mathf.Sqrt((xDistance * xDistance) + (yDistance * yDistance));
     }
 
     public IEnumerator SpawnBullet()
