@@ -32,15 +32,6 @@ public class EnemyPatrolAI : MonoBehaviour
         mustFlip = false;
         canShoot = true;
         scene = SceneManager.GetActiveScene();
-        if (scene.buildIndex == 0)
-        {
-            canPatrol = false;
-        }
-        else if (scene.buildIndex == 1)
-        {
-            canPatrol = false;
-            canShoot = false;
-        }
     }
 
     private void Update()
@@ -64,6 +55,16 @@ public class EnemyPatrolAI : MonoBehaviour
         else
         {
             canPatrol = true;
+        }
+
+        if (scene.buildIndex == 0)
+        {
+            canPatrol = false;
+        }
+        else if (scene.buildIndex == 1)
+        {
+            canPatrol = false;
+            canShoot = false;
         }
     }
 

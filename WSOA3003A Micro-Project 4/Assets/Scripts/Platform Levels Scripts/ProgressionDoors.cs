@@ -23,7 +23,7 @@ public class ProgressionDoors : MonoBehaviour
 
     private void Update()
     {
-        if (scene.buildIndex == 1 && enemyController.health <= 0)
+        if (scene.buildIndex == 1 && enemyController.hasDied)
         {
             this.gameObject.SetActive(true);
         }

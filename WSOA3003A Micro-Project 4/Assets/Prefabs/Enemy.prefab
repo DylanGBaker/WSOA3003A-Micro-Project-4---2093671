@@ -203,7 +203,7 @@ MonoBehaviour:
   canShoot: 0
   patrolSpeed: 50
   groundcheckradius: 0.1
-  attackRange: 35
+  attackRange: 10
   ZeroConstant: 0
   speed: 10
   enemyController: {fileID: 4367193934281679594}
