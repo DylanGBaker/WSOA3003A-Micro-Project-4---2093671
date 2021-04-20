@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float playerhealth;
+    public float health;
     public float playerwalkspeed;
     public float playerjumpforce;
     public float zeroConstant;
@@ -86,5 +86,21 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * increasedGravityfactor * Time.deltaTime;
         }
+    }
+
+    /// <summary>
+    /// Take damage when hit.
+    /// </summary>
+    /// <param name="damage"></param>
+
+    public void TakeDamage (int damage)
+    {
+        health -= damage;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Projectile(Clone)")
+            TakeDamage(enemyController.damage);
     }
 }

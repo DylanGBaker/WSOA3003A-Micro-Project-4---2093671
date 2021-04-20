@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class BulletController : MonoBehaviour
 {
-   
-    public float ZeroConstant = 0f;
+
+    public float ZeroConstant;
 
     public Rigidbody2D rb;
     private Scene scene;
@@ -30,16 +30,22 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && scene.buildIndex == 0)
+        switch (collision.tag)
         {
-            collision.transform.position = new Vector2(playerController.RestartPosForLevelZero.transform.position.x, playerController.RestartPosForLevelZero.transform.position.y);
-            Destroy(gameObject);
+            case "Player" when scene.buildIndex == 0 || scene.buildIndex == 1:
+                collision.transform.position = new Vector2(playerController.RestartPosForLevelZero.transform.position.x, playerController.RestartPosForLevelZero.transform.position.y);
+                break;
+
+            default:
+                Destroy(gameObject);
+                break;
         }
+        Destroy(gameObject);
     }
 
     IEnumerator DestroyBulletAfterCertainTime()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(4f);
         Destroy(gameObject);
     }
 }

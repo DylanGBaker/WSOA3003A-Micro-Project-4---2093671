@@ -22,7 +22,6 @@ public class EnemyPatrolAI : MonoBehaviour
     public float attackRange;
     public float ZeroConstant;
     public float speed;
-    public float oppositeOneEighty = -180f;
 
     [SerializeField] public EnemyController enemyController;
     [SerializeField] public PlayerController playerController;
@@ -44,9 +43,9 @@ public class EnemyPatrolAI : MonoBehaviour
 
         if (CalculateDistanceFromPlayer() <= attackRange)
         {
-            if (Player.position.x < transform.position.x && transform.localScale.x > 0f)
+            if (Player.position.x < transform.position.x && transform.localScale.x > ZeroConstant)
                 FlipEnemy();
-            else if (Player.position.x > transform.position.x && transform.localScale.x < 0f)
+            else if (Player.position.x > transform.position.x && transform.localScale.x < ZeroConstant)
                 FlipEnemy();
 
             rb.velocity = Vector2.zero;

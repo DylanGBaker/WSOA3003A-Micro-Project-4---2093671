@@ -176,7 +176,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 4
   hasDied: 1
+  damage: 5
   rb: {fileID: -3143404520734876979}
+  playerAttackSystem: {fileID: -7862619719217097029, guid: 94182158efc3d4b498d676a604633015, type: 3}
 --- !u!114 &-1298322395416267994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6334671655269407797}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.797, y: 0.152, z: 0}
+  m_LocalPosition: {x: 1.046, y: 0.152, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8933287980608424396}

@@ -135,9 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ZeroConstant: 0
-  speed: 10
+  damage: 5
   rb: {fileID: 1486041274758952308}
-  projectile: {fileID: 2555595384448730160}
-  projectileSpawnPoint: {fileID: 0}
   playerController: {fileID: 6243435951885972747, guid: 94182158efc3d4b498d676a604633015, type: 3}
-  enemyPatrolAI: {fileID: -1298322395416267994, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}

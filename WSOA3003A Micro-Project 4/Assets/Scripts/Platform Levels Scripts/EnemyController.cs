@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     public int health;
     public bool hasDied;
+    public int damage;
 
     public Rigidbody2D rb;
 
