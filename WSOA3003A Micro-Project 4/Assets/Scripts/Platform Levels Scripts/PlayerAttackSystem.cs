@@ -10,6 +10,7 @@ public class PlayerAttackSystem : MonoBehaviour
     public float startTimeBeforeNextAttack;
     public float attackRange;
     public bool hasKilledEnemy;
+    public Collider2D[] EnemiesHit;
 
     public Transform attackPosition;
     public LayerMask enemyLayer;
@@ -28,18 +29,13 @@ public class PlayerAttackSystem : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0) && playerSword.hasSword)
             {
-                Collider2D[] EnemiesHit = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemyLayer);
+                EnemiesHit = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemyLayer);
                 for (int x = 0; x < EnemiesHit.Length; x++)
                 {
                     if (EnemiesHit[x].tag == "BaseEnemy")
                     {
                         EnemiesHit[x].GetComponent<EnemyController>().TakeDamage(damageDealt);
-                        StartCoroutine(StunEnemy());
                     } 
-                    else if (EnemiesHit[x].tag == "BigEnemy")
-                    {
-                        break;
-                    }
                 }
 
             }
@@ -55,14 +51,5 @@ public class PlayerAttackSystem : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPosition.position, attackRange);
-    }
-
-    IEnumerator StunEnemy()
-    {
-        enemyPatrolAI.canPatrol = false;
-        enemyPatrolAI.canShoot = false; ;
-        yield return new WaitForSeconds(1.5f);
-        enemyPatrolAI.canPatrol = true;
-        enemyPatrolAI.canShoot = true;
     }
 }

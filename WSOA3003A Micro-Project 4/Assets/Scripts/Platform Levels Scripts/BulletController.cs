@@ -20,7 +20,7 @@ public class BulletController : MonoBehaviour
     private void Update()
     {
         if (transform.position.x < playerController.transform.position.x)
-            StartCoroutine(DestroyBulletAfterCertainTime());
+            StartCoroutine(DestroyBulletAfterTime());
     }
 
     /// <summary>
@@ -43,7 +43,7 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator DestroyBulletAfterCertainTime()
+    IEnumerator DestroyBulletAfterTime()
     {
         yield return new WaitForSeconds(4f);
         Destroy(gameObject);

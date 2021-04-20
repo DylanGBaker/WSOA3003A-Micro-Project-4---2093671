@@ -7,7 +7,7 @@ public class EnemyPatrolAI : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Transform groundCheck;
-    public LayerMask GroundLayer;
+    public LayerMask GroundLayer, triggerLayer;
     public Collider2D enemyCollider;
     private Scene scene;
     public Transform Player;
@@ -75,7 +75,7 @@ public class EnemyPatrolAI : MonoBehaviour
 
     public void Patrol()
     {
-        if (mustFlip || enemyCollider.IsTouchingLayers(GroundLayer))
+        if (mustFlip || enemyCollider.IsTouchingLayers(triggerLayer))
             FlipEnemy();
 
         float xVelocity = patrolSpeed * Time.fixedDeltaTime;
@@ -92,6 +92,11 @@ public class EnemyPatrolAI : MonoBehaviour
         patrolSpeed *= -1;
         canPatrol = true;
     }
+
+    /// <summary>
+    /// Spawn bullet and shoot in the direction of the player when the player is in range.
+    /// </summary>
+    /// <returns></returns>
 
     public IEnumerator SpawnBullet()
     {

@@ -177,8 +177,11 @@ MonoBehaviour:
   health: 4
   hasDied: 1
   damage: 5
+  stunTime: 0
+  startStunTime: 4
   rb: {fileID: -3143404520734876979}
   playerAttackSystem: {fileID: -7862619719217097029, guid: 94182158efc3d4b498d676a604633015, type: 3}
+  enemyPatrolAI: {fileID: -1298322395416267994}
 --- !u!114 &-1298322395416267994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +199,9 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  triggerLayer:
+    serializedVersion: 2
+    m_Bits: 256
   enemyCollider: {fileID: 8418241087240322022}
   Player: {fileID: 6243435951885972740, guid: 94182158efc3d4b498d676a604633015, type: 3}
   projectile: {fileID: 2555595384448730160, guid: 68b943eb6a1935649a27ca67c89d5bdc, type: 3}

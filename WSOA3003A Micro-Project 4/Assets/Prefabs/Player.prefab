@@ -234,3 +234,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   playerSword: {fileID: 6921786294503435161, guid: 8672f0e4ccffb954ba5bcd190fd61378, type: 3}
+  enemyPatrolAI: {fileID: -1298322395416267994, guid: badcb63482c6e3249af5d25268f6cb8d, type: 3}

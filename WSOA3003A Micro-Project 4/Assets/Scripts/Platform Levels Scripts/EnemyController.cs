@@ -8,10 +8,13 @@ public class EnemyController : MonoBehaviour
     public int health;
     public bool hasDied;
     public int damage;
+    public float stunTime;
+    public float startStunTime = 4f;
 
     public Rigidbody2D rb;
 
     [SerializeField] public PlayerAttackSystem playerAttackSystem;
+    [SerializeField] public EnemyPatrolAI enemyPatrolAI;
 
     private void Start()
     {
@@ -21,6 +24,18 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        /*if (stunTime <= 0f)
+        {
+            enemyPatrolAI.canShoot = true;
+            enemyPatrolAI.canPatrol = true;
+        }
+        else if (stunTime > 0f)
+        {
+            stunTime -= Time.deltaTime;
+            enemyPatrolAI.canPatrol = false;
+            enemyPatrolAI.canShoot = false;
+        }*/
+
         if (hasDied)
         {
             StartCoroutine(Die());
@@ -29,6 +44,8 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage (int damage)
     {
+        //stunTime = startStunTime;
+
         health -= damage;
 
         if (health <= 0)
@@ -37,7 +54,7 @@ public class EnemyController : MonoBehaviour
 
     public IEnumerator Die()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }
