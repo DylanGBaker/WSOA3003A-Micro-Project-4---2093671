@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
         float xPos = transform.position.x + playerwalkspeed * Time.deltaTime;
         transform.position = new Vector2(xPos, transform.position.y);
         velocity = Vector2.right * playerwalkspeed;
+        transform.localScale = new Vector2(1f, transform.localScale.y);
     }
 
     public void MoveLeft()
@@ -58,6 +59,8 @@ public class PlayerController : MonoBehaviour
         float xPos = transform.position.x - playerwalkspeed * Time.deltaTime;
         transform.position = new Vector2(xPos, transform.position.y);
         velocity = Vector2.left * playerwalkspeed;
+        transform.localScale = new Vector2(-1f, transform.localScale.y);
+
     }
 
     /// <summary>

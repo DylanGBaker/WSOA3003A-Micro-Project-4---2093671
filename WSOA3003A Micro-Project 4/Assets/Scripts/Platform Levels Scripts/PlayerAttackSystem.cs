@@ -15,6 +15,7 @@ public class PlayerAttackSystem : MonoBehaviour
     public LayerMask enemyLayer;
 
     [SerializeField] public PlayerSword playerSword;
+    [SerializeField] public EnemyPatrolAI enemyPatrolAI;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class PlayerAttackSystem : MonoBehaviour
                     if (EnemiesHit[x].tag == "BaseEnemy")
                     {
                         EnemiesHit[x].GetComponent<EnemyController>().TakeDamage(damageDealt);
+                        StartCoroutine(StunEnemy());
                     } 
                     else if (EnemiesHit[x].tag == "BigEnemy")
                     {
@@ -53,5 +55,14 @@ public class PlayerAttackSystem : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPosition.position, attackRange);
+    }
+
+    IEnumerator StunEnemy()
+    {
+        enemyPatrolAI.canPatrol = false;
+        enemyPatrolAI.canShoot = false; ;
+        yield return new WaitForSeconds(1.5f);
+        enemyPatrolAI.canPatrol = true;
+        enemyPatrolAI.canShoot = true;
     }
 }

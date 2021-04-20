@@ -197,9 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b8485e6f45c1a4d945abc54e2a63a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerhealth: 20
+  health: 0
   playerwalkspeed: 7
-  playerjumpforce: 8
+  playerjumpforce: 10
   zeroConstant: 0
   increasedGravityfactor: 3
   rb: {fileID: 6243435951885972742}
