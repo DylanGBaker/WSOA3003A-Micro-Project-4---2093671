@@ -45,15 +45,9 @@ public class EnemyPatrolAI : MonoBehaviour
         if (CalculateDistanceFromPlayer() <= attackRange)
         {
             if (Player.position.x < transform.position.x && transform.localScale.x > 0f)
-            {
                 FlipEnemy();
-                Debug.Log("player on left");
-            }
             else if (Player.position.x > transform.position.x && transform.localScale.x < 0f)
-            {
                 FlipEnemy();
-                Debug.Log("player on right");
-            }
 
             rb.velocity = Vector2.zero;
             canPatrol = false;
@@ -66,14 +60,9 @@ public class EnemyPatrolAI : MonoBehaviour
             canPatrol = true;
         }
 
-        if (scene.buildIndex == 0)
+        if (scene.buildIndex == 0 || scene.buildIndex == 1)
         {
             canPatrol = false;
-        }
-        else if (scene.buildIndex == 1)
-        {
-            canPatrol = false;
-            canShoot = false;
         }
     }
 
@@ -100,7 +89,6 @@ public class EnemyPatrolAI : MonoBehaviour
     public void FlipEnemy()
     {
         canPatrol = false;
-        //transform.Rotate(0f, 180f, 0f);
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         patrolSpeed *= -1;
         canPatrol = true;
