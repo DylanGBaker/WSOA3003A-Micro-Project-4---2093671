@@ -14,8 +14,8 @@ public class PlayerAttackSystem : MonoBehaviour
 
     public Transform attackPosition;
     public LayerMask enemyLayer;
+    public Animator anim;
 
-    [SerializeField] public PlayerSword playerSword;
     [SerializeField] public EnemyPatrolAI enemyPatrolAI;
 
     private void Start()
@@ -27,8 +27,9 @@ public class PlayerAttackSystem : MonoBehaviour
     {
         if (timeBeforeNextAttack <= 0)
         {
-            if (Input.GetKey(KeyCode.Mouse0) && playerSword.hasSword)
+            if (Input.GetKey(KeyCode.Mouse0))
             {
+                anim.SetTrigger("playerAttack");
                 EnemiesHit = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemyLayer);
                 for (int x = 0; x < EnemiesHit.Length; x++)
                 {

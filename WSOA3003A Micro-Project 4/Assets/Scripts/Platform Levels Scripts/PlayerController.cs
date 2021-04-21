@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 velocity;
     public KeyCode rightbutton, leftbutton, jumpbutton;
     public LayerMask groundlayer;
-    public CapsuleCollider2D playerCapsulecollider;
+    public BoxCollider2D playerBoxcollider;
     public GameObject RestartPosForLevelZero;
 
     [SerializeField] public EnemyController enemyController;
@@ -51,7 +51,15 @@ public class PlayerController : MonoBehaviour
         float xPos = transform.position.x + playerwalkspeed * Time.deltaTime;
         transform.position = new Vector2(xPos, transform.position.y);
         velocity = Vector2.right * playerwalkspeed;
-        transform.localScale = new Vector2(1f, transform.localScale.y);
+
+        if (transform.localScale.x > 0f)
+        {
+            transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y);
+        }
+        else
+        {
+            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        }
     }
 
     public void MoveLeft()
@@ -59,8 +67,15 @@ public class PlayerController : MonoBehaviour
         float xPos = transform.position.x - playerwalkspeed * Time.deltaTime;
         transform.position = new Vector2(xPos, transform.position.y);
         velocity = Vector2.left * playerwalkspeed;
-        transform.localScale = new Vector2(-1f, transform.localScale.y);
 
+        if (transform.localScale.x < 0f)
+        {
+            transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y);
+        }
+        else
+        {
+            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        }
     }
 
     /// <summary>
@@ -74,9 +89,9 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded()
     {
-        float raycastDistance = 0.01f;
-        RaycastHit2D grounded = Physics2D.Raycast(playerCapsulecollider.bounds.center, Vector2.down, playerCapsulecollider.bounds.extents.y + raycastDistance, groundlayer);
-        Debug.DrawRay(playerCapsulecollider.bounds.center, Vector2.down * (playerCapsulecollider.bounds.extents.y + raycastDistance));
+        float raycastDistance = 0.1f;
+        RaycastHit2D grounded = Physics2D.Raycast(playerBoxcollider.bounds.center, Vector2.down, playerBoxcollider.bounds.extents.y + raycastDistance, groundlayer);
+        Debug.DrawRay(playerBoxcollider.bounds.center, Vector2.down * (playerBoxcollider.bounds.extents.y + raycastDistance));
         return grounded.collider != null;
     }
 

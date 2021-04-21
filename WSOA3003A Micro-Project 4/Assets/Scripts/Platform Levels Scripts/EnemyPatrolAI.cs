@@ -13,6 +13,7 @@ public class EnemyPatrolAI : MonoBehaviour
     public Transform Player;
     public GameObject projectile;
     public Transform projectileSpawnPoint;
+    public Animator anim; 
 
     public bool canPatrol;
     public bool mustFlip;
@@ -52,7 +53,10 @@ public class EnemyPatrolAI : MonoBehaviour
             canPatrol = false;
 
             if (canShoot == true)
-            StartCoroutine(SpawnBullet());
+            {
+                anim.SetTrigger("isAttacking");
+                StartCoroutine(SpawnBullet());
+            }
         }
         else
         {
