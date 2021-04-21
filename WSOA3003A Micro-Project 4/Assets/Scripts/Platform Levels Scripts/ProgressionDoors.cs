@@ -16,18 +16,8 @@ public class ProgressionDoors : MonoBehaviour
     private void Start()
     {
         scene = SceneManager.GetActiveScene();
-
-        if (scene.buildIndex == 1)
-            gameObject.SetActive(false);
     }
 
-    private void Update()
-    {
-        if (scene.buildIndex == 1 && playerAttackSystem.hasKilledEnemy)
-        {
-            gameObject.SetActive(true);
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && scene.buildIndex == LevelZero)
@@ -39,6 +29,6 @@ public class ProgressionDoors : MonoBehaviour
         {
             collision.attachedRigidbody.velocity = new Vector2(0f, 0f);
             SceneManager.LoadScene(LevelTwo);
-        }
+        } 
     }
 }
