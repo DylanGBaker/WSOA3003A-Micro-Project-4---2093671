@@ -9,6 +9,7 @@ public class ProgressionDoors : MonoBehaviour
     public int LevelZero = 0;
     public int LevelOne = 1;
     public int LevelTwo = 2;
+    public int LevelThree = 3;
 
     [SerializeField] public PlayerAttackSystem playerAttackSystem;
 
@@ -29,6 +30,11 @@ public class ProgressionDoors : MonoBehaviour
         {
             collision.attachedRigidbody.velocity = new Vector2(0f, 0f);
             SceneManager.LoadScene(LevelTwo);
-        } 
+        }
+        else if (collision.tag == "Player" && scene.buildIndex == LevelTwo)
+        {
+            collision.attachedRigidbody.velocity = new Vector2(0f, 0f);
+            SceneManager.LoadScene(LevelThree);
+        }
     }
 }
