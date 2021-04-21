@@ -21914,6 +21914,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6243435951885972741, guid: 94182158efc3d4b498d676a604633015, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6243435951885972747, guid: 94182158efc3d4b498d676a604633015, type: 3}
       propertyPath: RestartPosForLevelZero
       value: 
