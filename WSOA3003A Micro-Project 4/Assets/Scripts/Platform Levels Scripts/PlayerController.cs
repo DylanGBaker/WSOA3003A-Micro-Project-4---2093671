@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float health;
+    public int health;
     public float playerwalkspeed;
     public float playerjumpforce;
     public float zeroConstant;
@@ -16,17 +17,24 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundlayer;
     public BoxCollider2D playerBoxcollider;
     public GameObject RestartPosForLevelZero;
+    private Scene scene;
 
     [SerializeField] public EnemyController enemyController;
+    [SerializeField] public HealthBar healthBar;
 
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        scene = SceneManager.GetActiveScene();
+        healthBar.setHealth(health);
     }
 
     private void Update()
     {
         increaseGravity();
+
+        if (health >= 20)
+            health = 20;
     }
 
     private void FixedUpdate()
@@ -114,11 +122,15 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage (int damage)
     {
         health -= damage;
+        healthBar.setHealth(health);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Projectile(Clone)")
+        if (collision.name == "Projectile(Clone)" && scene.buildIndex == 2)
             TakeDamage(enemyController.damage);
+
+        if (collision.name == "Heart(Clone)")
+            health += 5;
     }
 }

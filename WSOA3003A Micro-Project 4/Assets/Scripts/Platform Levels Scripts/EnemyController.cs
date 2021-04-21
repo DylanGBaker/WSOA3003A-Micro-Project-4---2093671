@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public float startStunTime = 4f;
 
     public Rigidbody2D rb;
+    public GameObject healthPickups;
 
     [SerializeField] public PlayerAttackSystem playerAttackSystem;
     [SerializeField] public EnemyPatrolAI enemyPatrolAI;
@@ -39,6 +40,7 @@ public class EnemyController : MonoBehaviour
         if (hasDied)
         {
             StartCoroutine(Die());
+            Instantiate(healthPickups, transform.position, Quaternion.identity);
         }
     }
 
