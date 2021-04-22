@@ -27,8 +27,6 @@ public class PlayerAttackSystem : MonoBehaviour
 
     private void Update()
     {
-        if (scene.buildIndex != 3 )
-        {
             if (timeBeforeNextAttack <= 0)
             {
                 if (Input.GetKey(KeyCode.Mouse0))
@@ -50,7 +48,6 @@ public class PlayerAttackSystem : MonoBehaviour
             {
                 timeBeforeNextAttack -= Time.deltaTime;
             }
-        }
     }
 
     private void OnDrawGizmosSelected()
