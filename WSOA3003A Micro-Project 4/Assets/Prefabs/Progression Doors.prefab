@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921d33c59ead4514d8acf8cc70e596cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelZero: 0
-  LevelOne: 1
-  LevelTwo: 2
+  LevelZero: 2
+  LevelOne: 3
+  LevelTwo: 4
+  LevelThree: 5
   playerAttackSystem: {fileID: -7862619719217097029, guid: 94182158efc3d4b498d676a604633015, type: 3}
