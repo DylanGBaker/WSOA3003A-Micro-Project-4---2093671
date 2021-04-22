@@ -15,36 +15,41 @@ public class PlayerAttackSystem : MonoBehaviour
     public Transform attackPosition;
     public LayerMask enemyLayer;
     public Animator anim;
+    private Scene scene;
 
     [SerializeField] public EnemyPatrolAI enemyPatrolAI;
 
     private void Start()
     {
         hasKilledEnemy = false;
+        scene = SceneManager.GetActiveScene();
     }
 
     private void Update()
     {
-        if (timeBeforeNextAttack <= 0)
+        if (scene.buildIndex != 3 )
         {
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (timeBeforeNextAttack <= 0)
             {
-                anim.SetTrigger("playerAttack");
-                EnemiesHit = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemyLayer);
-                for (int x = 0; x < EnemiesHit.Length; x++)
+                if (Input.GetKey(KeyCode.Mouse0))
                 {
-                    if (EnemiesHit[x].tag == "BaseEnemy")
+                    anim.SetTrigger("playerAttack");
+                    EnemiesHit = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemyLayer);
+                    for (int x = 0; x < EnemiesHit.Length; x++)
                     {
-                        EnemiesHit[x].GetComponent<EnemyController>().TakeDamage(damageDealt);
-                    } 
-                }
+                        if (EnemiesHit[x].tag == "BaseEnemy")
+                        {
+                            EnemiesHit[x].GetComponent<EnemyController>().TakeDamage(damageDealt);
+                        }
+                    }
 
+                }
+                timeBeforeNextAttack = startTimeBeforeNextAttack;
             }
-            timeBeforeNextAttack = startTimeBeforeNextAttack;
-        }
-        else
-        {
-            timeBeforeNextAttack -= Time.deltaTime;
+            else
+            {
+                timeBeforeNextAttack -= Time.deltaTime;
+            }
         }
     }
 

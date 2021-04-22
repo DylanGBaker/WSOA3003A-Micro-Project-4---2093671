@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class ProgressionDoors : MonoBehaviour
 {
     private Scene scene;
-    public int LevelZero = 0;
-    public int LevelOne = 1;
-    public int LevelTwo = 2;
-    public int LevelThree = 3;
+    public int LevelZero = 2;
+    public int LevelOne = 3;
+    public int LevelTwo = 4;
+    public int LevelThree = 5;
 
     [SerializeField] public PlayerAttackSystem playerAttackSystem;
 
